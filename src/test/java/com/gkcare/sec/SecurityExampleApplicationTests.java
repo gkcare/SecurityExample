@@ -1,4 +1,4 @@
-package com.gkcare.Security;
+package com.gkcare.sec;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
