@@ -8,7 +8,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class CustomUserDetails implements UserDetails {
 
@@ -22,7 +21,7 @@ public class CustomUserDetails implements UserDetails {
        // authorities= Arrays.stream(userInfo.getRoles().split(",")).map(SimpleGrantedAuthority::new).toList();
 
        /* authorities= Arrays.stream(userInfo.getRoles().split(","))
-                .map(SimpleGrantedAuthority::new)
+                .map(Sim0pleGrantedAuthority::new)
                 .map(authority -> (GrantedAuthority) authority)
                 .toList();*/
         // belo line use cas method reference

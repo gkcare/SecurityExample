@@ -1,4 +1,6 @@
 package com.gkcare.sec.dto;
 
-public record ApiResponseDto(int status, String message, Object data){}
+import java.time.LocalDateTime;
+
+public record ApiResponseDto(LocalDateTime timestamp,int Status,String message,Object data,String errorCode,String path){}
 
