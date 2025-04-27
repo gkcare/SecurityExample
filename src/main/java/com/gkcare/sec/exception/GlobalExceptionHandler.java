@@ -23,32 +23,6 @@ public class GlobalExceptionHandler {
 
     private final MessageSource messageSource;
 
-   /* @ExceptionHandler(InvalidCredentialsException.class)
-    public ResponseEntity<ApiResponseDto> handleInvalidCredentials(InvalidCredentialsException ex, HttpServletRequest request){
-        ApiResponseDto response=new ApiResponseDto(
-                LocalDateTime.now(),
-                HttpStatus.UNAUTHORIZED.value(),
-                ex.getMessage(),
-                null,
-                ex.getErrorCode(),
-                request.getRequestURI()
-        );
-        return new ResponseEntity<>(response,HttpStatus.UNAUTHORIZED);
-    }*/
-
-    /*@ExceptionHandler(Exception.class) // fallback for any unknown exceptions
-    public ResponseEntity<ApiResponseDto> handleAllExceptions(Exception ex, HttpServletRequest request) {
-        ApiResponseDto response=new ApiResponseDto(
-                LocalDateTime.now(),
-                HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                ErrorMessages.INTERNAL_SERVER_ERROR.getMessage(),
-                null,
-                ex.getMessage(),
-                request.getRequestURI()
-        );
-        return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
-    }*/
-
     @ExceptionHandler(BaseException.class)
     public ResponseEntity<ApiResponseDto> handleBaseException(BaseException ex, HttpServletRequest request) {
         ex.printStackTrace();

@@ -8,12 +8,12 @@ public abstract class BaseException extends RuntimeException {
 
     private final ErrorCodes errorCode;
 
-    public BaseException(ErrorCodes errorCode){
+    protected BaseException(ErrorCodes errorCode){
         super(errorCode.name());
         this.errorCode=errorCode;
     }
 
-    public BaseException(ErrorCodes errorCode,String customMessage){
+    protected BaseException(ErrorCodes errorCode,String customMessage){
         super(customMessage);
         this.errorCode=errorCode;
     }

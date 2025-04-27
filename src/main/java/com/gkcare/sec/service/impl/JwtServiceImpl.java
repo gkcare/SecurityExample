@@ -32,7 +32,7 @@ public class JwtServiceImpl implements JwtService {
     }
 
     public String generateToken(String username){
-        Map<String,Object> claims=new HashMap<String,Object>();
+        Map<String,Object> claims=new HashMap<>();
         return createToken(claims,username);
     }
 

@@ -34,8 +34,6 @@ public class LoginController {
 
     @PostMapping("/login")
     public ResponseEntity<ApiResponseDto> login(@RequestBody LoginDto loginDto, HttpServletRequest request){
-     System.out.println("Step First");
-        System.out.println(authenticationManager);
         Authentication authentication=authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginDto.username(),loginDto.password()));
 
         if(authentication.isAuthenticated()){
