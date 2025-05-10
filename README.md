@@ -1,5 +1,9 @@
 Here's a clean and professional `README.md` tailored to your **Spring Boot Security Example** project:
+
+---
+
 Follow the structure pattern, master -> springsecurity_v0.1 -> springsecurity_jwt_v0.2 
+
 ---
 
 ````markdown
@@ -68,7 +72,7 @@ Before you begin, ensure you have the following installed:
 
 1. **Login**
 
-   * Endpoint: `POST /api/auth/login`
+   * Endpoint: `POST /login/login`
    * Body:
 
      ```json
@@ -81,7 +85,7 @@ Before you begin, ensure you have the following installed:
 
 2. **Access Protected Endpoint**
 
-   * Endpoint: `GET /api/protected/data`
+   * Endpoint: `GET /*****`
    * Header:
 
      ```
