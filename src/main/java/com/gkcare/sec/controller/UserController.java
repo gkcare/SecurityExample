@@ -22,7 +22,19 @@ public class UserController {
     }
 
 
-    @PostMapping("/add")
+    /*@PostMapping("/add")
+    public ResponseEntity<ApiResponseDto> addUserInfo(@RequestBody UserInfoDto userInfoDto, HttpServletRequest request){
+        return new ResponseEntity<>(new ApiResponseDto(
+                LocalDateTime.now(),
+                HttpStatus.OK.value(),
+                "User has been added successfully",
+                userService.addUser(userInfoDto),
+                null,
+                request.getRequestURI()
+        ), HttpStatusCode.valueOf(200));
+    }*/
+
+    @PostMapping("/register")
     public ResponseEntity<ApiResponseDto> addUserInfo(@RequestBody UserInfoDto userInfoDto, HttpServletRequest request){
         return new ResponseEntity<>(new ApiResponseDto(
                 LocalDateTime.now(),

@@ -8,32 +8,20 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class CustomUserDetails implements UserDetails {
 
     private String username;
     private String password;
-    private List<GrantedAuthority> authorities;
+    private Set<SimpleGrantedAuthority> authorities;
 
     public CustomUserDetails(UserInfo userInfo){
         this.username=userInfo.getUsername();
         this.password=userInfo.getPassword();
-       // authorities= Arrays.stream(userInfo.getRoles().split(",")).map(SimpleGrantedAuthority::new).toList();
+        authorities= userInfo.getRoles().stream().map(role -> new SimpleGrantedAuthority("ROLE_"+role.getName().name().replace("ROLE_",""))).collect(Collectors.toSet());
 
-       /* authorities= Arrays.stream(userInfo.getRoles().split(","))
-                .map(Sim0pleGrantedAuthority::new)
-                .map(authority -> (GrantedAuthority) authority)
-                .toList();*/
-        // belo line use cas method reference
-        authorities= Arrays.stream(userInfo.getRoles().split(","))
-                .map(SimpleGrantedAuthority::new)
-                .map(GrantedAuthority.class::cast)
-                .toList();
-        /*authorities = Arrays.stream(userInfo.getRoles().split(","))
-                .map(SimpleGrantedAuthority::new)
-                .collect(Collectors.toList());*//*authorities = Arrays.stream(userInfo.getRoles().split(","))
-                .map(SimpleGrantedAuthority::new)
-                .collect(Collectors.toList());*/
     }
 
     @Override
