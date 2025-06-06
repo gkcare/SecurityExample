@@ -24,6 +24,11 @@ public class ProfileServiceImpl implements ProfileService {
 
         token = token.replace("Bearer ", "");
         String username= jwtService.extractUsername(token);
+
+        if (username == null || username.isBlank()) {
+            throw new IllegalArgumentException("Invalid JWT token");
+        }
+
         UserInfo userinfo = userInfoRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
         return toDto(userinfo);

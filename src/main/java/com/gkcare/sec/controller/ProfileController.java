@@ -3,6 +3,7 @@ package com.gkcare.sec.controller;
 import com.gkcare.sec.dto.ApiResponseDto;
 import com.gkcare.sec.dto.UserProfileDto;
 import com.gkcare.sec.service.ProfileService;
+import io.jsonwebtoken.lang.Assert;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -26,6 +27,9 @@ public class ProfileController {
     @GetMapping
     @PreAuthorize("hasAnyRole('STUDENT', 'TEACHER', 'DIRECTOR', 'LIBRARIAN')")
     public ResponseEntity<ApiResponseDto> getProfile(@RequestHeader("Authorization") String authHeader, HttpServletRequest request){
+
+        Assert.notNull(authHeader);
+
         return new ResponseEntity<>(new ApiResponseDto(
                 LocalDateTime.now(),
                 HttpStatus.OK.value(),
